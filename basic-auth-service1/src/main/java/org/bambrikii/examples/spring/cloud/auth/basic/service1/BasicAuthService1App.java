@@ -1,4 +1,4 @@
-package org.bambrikii.examples.spring.cloud.service1;
+package org.bambrikii.examples.spring.cloud.auth.basic.service1;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

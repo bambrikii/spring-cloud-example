@@ -1,4 +1,4 @@
-package org.bambrikii.examples.spring.cloud.service1;
+package org.bambrikii.examples.spring.cloud.auth.basic.service1;
 
 import lombok.Getter;
 import lombok.Setter;

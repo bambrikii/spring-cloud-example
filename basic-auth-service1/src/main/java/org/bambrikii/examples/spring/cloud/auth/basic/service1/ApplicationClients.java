@@ -1,7 +1,6 @@
-package org.bambrikii.examples.spring.cloud.service1;
+package org.bambrikii.examples.spring.cloud.auth.basic.service1;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
-import org.springframework.context.annotation.PropertySource;
 
 import java.util.ArrayList;
 import java.util.List;
