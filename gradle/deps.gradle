@@ -1,0 +1,26 @@
+def versions = [
+        springBoot     : "2.4.2",
+        springBootCloud: "3.0.1"
+]
+ext.deps = [
+        spring: [
+                boot: [
+                        version: "${versions.springBoot}",
+                        starter: [
+                                actuator: "org.springframework.boot:spring-boot-starter-actuator:${versions.springBoot}",
+                                security: "org.springframework.boot:spring-boot-starter-security:${versions.springBoot}",
+                                web     : "org.springframework.boot:spring-boot-starter-web:${versions.springBoot}",
+                                eureka  : [
+                                        client: "org.springframework.cloud:spring-cloud-starter-netflix-eureka-client:${versions.springBootCloud}",
+                                        server: "org.springframework.cloud:spring-cloud-starter-netflix-eureka-server:${versions.springBootCloud}"
+                                ]
+                        ]
+                ]
+        ],
+        junit : [
+                api   : "org.junit.jupiter:junit-jupiter-api:5.6.0",
+                engine: 'org.junit.jupiter:junit-jupiter-engine'
+        ],
+        gson  : "com.google.code.gson:gson:2.8.6",
+        lombok: "org.projectlombok:lombok:1.18.6"
+]

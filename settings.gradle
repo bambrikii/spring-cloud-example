@@ -1,0 +1,6 @@
+rootProject.name = 'spring-clould-example'
+
+include("service1")
+include("client1")
+include("registry")
+
