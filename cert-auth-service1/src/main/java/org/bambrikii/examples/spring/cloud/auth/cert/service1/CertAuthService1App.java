@@ -1,4 +1,4 @@
-package org.bambrikii.examples.spring.cloud.service1;
+package org.bambrikii.examples.spring.cloud.auth.cert.service1;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -11,13 +11,13 @@ import java.time.LocalDateTime;
 @SpringBootApplication
 @EnableEurekaClient
 @RestController
-public class Service1App {
+public class CertAuthService1App {
     public static void main(String[] args) {
-        SpringApplication.run(Service1App.class);
+        SpringApplication.run(CertAuthService1App.class);
     }
 
-    @GetMapping("/hello")
-    public String hello() {
-        return "Hello, world! " + LocalDateTime.now().toString();
+    @GetMapping("/helloCertSecure")
+    public String helloSecureCert() {
+        return "Hello, secure by certificated world! " + LocalDateTime.now().toString();
     }
 }

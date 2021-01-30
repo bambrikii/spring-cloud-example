@@ -2,6 +2,8 @@ rootProject.name = 'spring-clould-example'
 
 include("service1")
 include("basic-auth-service1")
+include("cert-auth-service1")
 include("client1")
 include("registry")
+include("ca")
 
