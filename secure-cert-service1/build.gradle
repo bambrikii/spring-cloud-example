@@ -1,0 +1,19 @@
+apply plugin: "java"
+apply from: "../gradle/deps.gradle"
+apply from: "../gradle/repos.gradle"
+
+dependencies {
+    compile(files("../ca/"))
+
+    compileOnly(deps.lombok)
+    annotationProcessor(deps.lombok)
+
+    implementation(deps.spring.boot.starter.eureka.server)
+    implementation(deps.spring.boot.starter.web)
+    implementation(deps.spring.boot.starter.security)
+    implementation(deps.gson)
+    implementation(deps.spring.boot.starter.actuator)
+
+    testImplementation(deps.junit.api)
+    testRuntimeOnly(deps.junit.engine)
+}

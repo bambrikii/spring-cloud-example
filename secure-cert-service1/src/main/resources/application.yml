@@ -1,0 +1,26 @@
+spring:
+  application:
+    name: secure-cert-service1
+  security:
+    user:
+      name: Admin
+      password: admin
+
+server:
+  port: ${PORT:8084}
+  ssl:
+    protocol: TLS
+    enabled: true
+    clientAuth: need
+    keyStore: classpath:secure-cert-service1.p12
+    keyStorePassword: ${PASSWORD}
+    keyAlias: secure-cert-service1
+    keyPassword: ${PASSWORD}
+    trustStore: classpath:secure-cert-service1.p12
+    trustStorePassword: ${PASSWORD}
+    trustPassword: ${PASSWORD}
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8762/eureka/

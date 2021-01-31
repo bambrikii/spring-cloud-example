@@ -2,3 +2,12 @@ build
 .idea
 bin
 .gradle
+.run
+.classpath
+.project
+.settings
+*.crt
+*.key
+*.csr
+*.p12
+*.srl

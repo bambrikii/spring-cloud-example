@@ -1,0 +1,25 @@
+spring:
+  application:
+    name: secure-cert-registry
+
+server:
+  port: ${PORT:8762}
+  ssl:
+    protocol: TLS
+    enabled: true
+    clientAuth: need
+    keyStore: classpath:secure-cert-registry.p12
+    keyStorePassword: ${PASSWORD}
+    keyAlias: secure-cert-registry
+    keyPassword: ${PASSWORD}
+    trustStore: classpath:secure-cert-registry.p12
+    trustStorePassword: ${PASSWORD}
+    trustPassword: ${PASSWORD}
+
+eureka:
+  client:
+    registerWithEureka: false
+    fetchRegistry: false
+  server:
+    waitTimeInMsWhenSyncEmpty: 0
+  renewalPercentThreshold: 0.85

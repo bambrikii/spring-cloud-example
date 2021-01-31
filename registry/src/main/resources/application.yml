@@ -1,6 +1,8 @@
-server:
+spring:
   application:
     name: spring-cloud-registry
+
+server:
   port: ${PORT:8761}
 
 eureka:
