@@ -16,4 +16,6 @@ dependencies {
 
     testImplementation(deps.junit.api)
     testRuntimeOnly(deps.junit.engine)
+
+    runtimeOnly(deps.spring.boot.devtools)
 }

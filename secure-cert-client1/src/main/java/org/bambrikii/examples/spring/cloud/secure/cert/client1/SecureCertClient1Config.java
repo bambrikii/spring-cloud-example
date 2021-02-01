@@ -6,6 +6,7 @@ import org.apache.http.client.HttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.web.client.RestTemplateBuilder;
+import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.client.HttpComponentsClientHttpRequestFactory;
@@ -35,6 +36,7 @@ public class SecureCertClient1Config extends WebSecurityConfigurerAdapter {
     @Value("${spring.application.name}")
     private String appName;
 
+    @LoadBalanced
     @Bean
     public RestTemplate restTemplate(RestTemplateBuilder builder) throws KeyManagementException,
             UnrecoverableKeyException, NoSuchAlgorithmException, KeyStoreException, CertificateException, IOException {
@@ -48,11 +50,13 @@ public class SecureCertClient1Config extends WebSecurityConfigurerAdapter {
     @Bean
     public SSLContext customSslContext() throws NoSuchAlgorithmException, KeyManagementException, KeyStoreException, CertificateException, IOException, UnrecoverableKeyException {
         return org.apache.http.ssl.SSLContextBuilder.create()
-                .loadKeyMaterial(ResourceUtils.getFile("classpath:" + appName + ".p12"), keyPw.toCharArray(), // keystore
-                        // password
+                .loadKeyMaterial(
+                        ResourceUtils.getFile("classpath:" + appName + ".p12"),
+                        keyPw.toCharArray(), // keystore password
                         keyPw.toCharArray() // key password
-                ).loadTrustMaterial(ResourceUtils.getFile("classpath:" + appName + ".p12"), trustPw.toCharArray() // truststore
-                        // password
+                ).loadTrustMaterial(
+                        ResourceUtils.getFile("classpath:" + appName + ".p12"),
+                        trustPw.toCharArray() // truststore password
                 ).build();
     }
 

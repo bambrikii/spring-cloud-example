@@ -40,11 +40,13 @@ public class SecureCertService1Config extends WebSecurityConfigurerAdapter {
     @Bean
     public SSLContext customSslContext() throws NoSuchAlgorithmException, KeyManagementException, KeyStoreException, CertificateException, IOException, UnrecoverableKeyException {
         return org.apache.http.ssl.SSLContextBuilder.create()
-                .loadKeyMaterial(ResourceUtils.getFile("classpath:" + appName + ".p12"), keyPw.toCharArray(), // keystore
-                        // password
+                .loadKeyMaterial(
+                        ResourceUtils.getFile("classpath:" + appName + ".p12"),
+                        keyPw.toCharArray(), // keystore password
                         keyPw.toCharArray() // key password
-                ).loadTrustMaterial(ResourceUtils.getFile("classpath:" + appName + ".p12"), trustPw.toCharArray() // truststore
-                        // password
+                ).loadTrustMaterial(
+                        ResourceUtils.getFile("classpath:" + appName + ".p12"),
+                        trustPw.toCharArray() // truststore password
                 ).build();
     }
 

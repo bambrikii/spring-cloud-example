@@ -5,6 +5,11 @@ spring:
     user:
       name: Admin
       password: admin
+  devtools:
+    restart:
+      enabled: false
+    livereload:
+      enabled: false
 
 server:
   port: ${PORT:8084}
@@ -12,6 +17,8 @@ server:
     protocol: TLS
     enabled: true
     clientAuth: need
+    oneWayAuthenticationEnabled: false
+    twoWayAuthenticationEnabled: true
     keyStore: classpath:secure-cert-service1.p12
     keyStorePassword: ${PASSWORD}
     keyAlias: secure-cert-service1
@@ -21,6 +28,9 @@ server:
     trustPassword: ${PASSWORD}
 
 eureka:
+  instance:
+    nonSecurePortEnabled: false
+    securePortEnabled: true
   client:
     serviceUrl:
-      defaultZone: http://localhost:8762/eureka/
+      defaultZone: https://localhost:8762/eureka/

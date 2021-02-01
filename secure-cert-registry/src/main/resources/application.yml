@@ -1,6 +1,11 @@
 spring:
   application:
     name: secure-cert-registry
+  devtools:
+    restart:
+      enabled: false
+    livereload:
+      enabled: false
 
 server:
   port: ${PORT:8762}
@@ -8,6 +13,8 @@ server:
     protocol: TLS
     enabled: true
     clientAuth: need
+    oneWayAuthenticationEnabled: false
+    twoWayAuthenticationEnabled: true
     keyStore: classpath:secure-cert-registry.p12
     keyStorePassword: ${PASSWORD}
     keyAlias: secure-cert-registry
@@ -17,9 +24,13 @@ server:
     trustPassword: ${PASSWORD}
 
 eureka:
+  instance:
+    nonSecurePortEnabled: false
+    securePortEnabled: true
   client:
     registerWithEureka: false
     fetchRegistry: false
+    securePortEnabled: true
   server:
     waitTimeInMsWhenSyncEmpty: 0
   renewalPercentThreshold: 0.85

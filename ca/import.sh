@@ -7,7 +7,7 @@ for p12 in secure-*.p12; do
     p12Filename="${p12%.*}"
     crtFilename="${crt%.*}"
     if [ "$p12Filename" != "$crtFilename" ]; then
-      echo "     ${crt} -> ${crtFilename}-signed -> ${p12Filename}"
+      echo "${crt} -> ${crtFilename}-signed -> ${p12Filename}"
       keytool -importcert -noprompt -keystore "${p12}" -alias "${crtFilename}-signed" -file "${crt}" -storepass "${PW}"
     fi
   done

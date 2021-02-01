@@ -5,8 +5,8 @@ def versions = [
 ext.deps = [
         spring: [
                 boot: [
-                        version: "${versions.springBoot}",
-                        starter: [
+                        version : "${versions.springBoot}",
+                        starter : [
                                 actuator: "org.springframework.boot:spring-boot-starter-actuator:${versions.springBoot}",
                                 security: "org.springframework.boot:spring-boot-starter-security:${versions.springBoot}",
                                 web     : "org.springframework.boot:spring-boot-starter-web:${versions.springBoot}",
@@ -14,7 +14,8 @@ ext.deps = [
                                         client: "org.springframework.cloud:spring-cloud-starter-netflix-eureka-client:${versions.springBootCloud}",
                                         server: "org.springframework.cloud:spring-cloud-starter-netflix-eureka-server:${versions.springBootCloud}"
                                 ]
-                        ]
+                        ],
+                        devtools: "org.springframework.boot:spring-boot-devtools:${versions.springBoot}"
                 ]
         ],
         junit : [
