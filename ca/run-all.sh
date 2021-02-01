@@ -7,3 +7,4 @@ PW=$1
 ./client.sh secure-cert-registry "${PW}"
 ./client.sh secure-cert-client1 "${PW}"
 ./client.sh secure-cert-service1 "${PW}"
+# ./import.sh "${PW}"
